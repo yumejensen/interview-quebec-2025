@@ -194,7 +194,7 @@ let mappedObjects = function(array){
   
 };
 
-console.log(mappedObjects(watchList));
+//console.log(mappedObjects(watchList));
 
 /*
 Use the native reduce method to return an array of subarrays. Each subarray should contain the movie's title, 
@@ -207,6 +207,25 @@ year, and the last genreTag in its genreTags array.
   ['Bringing Up Baby', 1938, 'Comedy' ],
   ['Shoah', 1985, 'World War 2']
 ]
+
+I: Array of movie objects
+O: Array of subarrays with [title, year, genretag[last index]]
 */
 
-let subArrays;
+let subArrays = function(array){
+  // reduce method
+  return array.reduce((acc, current) => {
+    // subarray holder
+    let subArr = [];
+    // add title, year, and last genretag to subArr
+    subArr[0] = current.title;
+    subArr[1] = current.year;
+    subArr[2] = current.genreTags[current.genreTags.length - 1];
+    // push subarray into main
+    acc.push(subArr);
+    // return main array of subarrays
+    return acc;
+  }, []);
+};
+
+console.log(subArrays(watchList));
