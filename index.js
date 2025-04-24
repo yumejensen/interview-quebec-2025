@@ -23,7 +23,7 @@ const watchList = [
       },
       {
         platform: 'Max',
-        paid: True
+        paid: true
       }
     ]
   },
